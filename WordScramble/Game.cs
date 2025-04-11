@@ -13,15 +13,12 @@ namespace WordScramble
         private readonly WordProvider wordProvider;
 
         /// <summary>
-        /// A list to store the last 5 game results for the game stats board.
+        wordProvider = new WordProvider();
+        gameStats = new GameResult[5];
         /// </summary>
         private readonly GameResult[] gameStats;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Game"/> class.
-        /// Sets up the word provider, evaluator, and initializes the 
-        /// game stats board.
-        /// </summary>
+
         public Game()
         {
             // ////////// => TO IMPLEMENT <= //////////// //
@@ -156,12 +153,15 @@ namespace WordScramble
             {
                 if (gameStats[i] == null)
                 {
-                    // ////////// => TO IMPLEMENT <= //////////// //
+                    break;
                 }
-                
-                // Add row to table
-                // Table.AddRow() only accepts strings
-                // ////////// => TO IMPLEMENT <= //////////// //
+                else
+                {
+                    table.AddRow(
+                        (i + 1).ToString(),
+                        gameStats[i].Word,
+                        gameStats[i].TimeTaken.ToString("F2"));
+                }
             }
 
             AnsiConsole.Write(table);
