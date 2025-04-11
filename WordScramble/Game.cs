@@ -22,6 +22,7 @@ namespace WordScramble
         {
             wordProvider = new WordProvider();
             gameStats = new GameResult[5];
+
         }
 
         /// <summary>
@@ -102,7 +103,7 @@ namespace WordScramble
             /// <summary>
             /// Checks if the player's guess is correct.
             /// </summary>
-            bool isCorrect = // ////////// => TO IMPLEMENT <= //////////// //
+            bool isCorrect = userInput.ToLower() == word.ToLower();
 
             if (isCorrect)
             {
@@ -113,11 +114,11 @@ namespace WordScramble
                 // Shift existing entries
                 for (int i = gameStats.Length - 1; i > 0; i--)
                 {
-                    // ////////// => TO IMPLEMENT <= //////////// //
+                    gameStats[i] = gameStats[i - 1];
                 }
 
                 // Add new result at the beginning
-                gameStats[0] = // ////////// => TO IMPLEMENT <= //////////// //
+                gameStats[0] = new GameResult(word, timeTaken);
             }
             else
             {
