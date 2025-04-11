@@ -13,15 +13,15 @@ namespace WordScramble
         private readonly WordProvider wordProvider;
 
         /// <summary>
-        wordProvider = new WordProvider();
-        gameStats = new GameResult[5];
+        /// A list to store the last 5 game results for the game stats board.
         /// </summary>
         private readonly GameResult[] gameStats;
 
 
         public Game()
         {
-            // ////////// => TO IMPLEMENT <= //////////// //
+            wordProvider = new WordProvider();
+            gameStats = new GameResult[5];
         }
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace WordScramble
                 switch (choice)
                 {
                     case "Start Game":
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        StartGame();
                         break;
                     case "View Game Stats":
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        ShowGameStats();
                         break;
                     case "Quit":
                         return;
@@ -81,7 +81,7 @@ namespace WordScramble
             /// <summary>
             /// The scrambled version of the word.
             /// </summary>
-            string scrambledWord = // ////////// => TO IMPLEMENT <= //////////// //
+            string scrambledWord =
 
             AnsiConsole.Clear();
             AnsiConsole.MarkupLine("[bold green]Unscramble the word:[/]");
