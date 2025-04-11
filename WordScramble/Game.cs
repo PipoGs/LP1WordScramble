@@ -44,7 +44,7 @@ namespace WordScramble
                 string choice = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
                         .Title("[bold yellow]Word Scramble[/]")
-                        .AddChoices("Start Game", "View Game Stats", "Quit"));
+                        .AddChoices("Start Game", "View Game Stats", "Most Guessed Words", "Quit"));
 
                 switch (choice)
                 {
@@ -53,6 +53,9 @@ namespace WordScramble
                         break;
                     case "View Game Stats":
                         ShowGameStats();
+                        break;
+                    case "Most Guessed Words":
+                        MostGuessedWords();
                         break;
                     case "Quit":
                         return;
@@ -164,6 +167,20 @@ namespace WordScramble
                         gameStats[i].TimeTaken.ToString("F2"));
                 }
             }
+
+            AnsiConsole.Write(table);
+            AnsiConsole.Markup(
+                "\n[bold green]Press Enter to Return to Menu...[/]");
+            Console.ReadLine();
+        }
+
+        private void MostGuessedWords()
+        {
+            AnsiConsole.Clear();
+            Table table = new Table();
+            table.AddColumn("#");
+            table.AddColumn("Word");
+            table.AddColumn("Guessed Percentage");
 
             AnsiConsole.Write(table);
             AnsiConsole.Markup(
